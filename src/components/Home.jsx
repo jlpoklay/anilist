@@ -8,7 +8,7 @@ import { ListContext, StarContext, HeartContext } from '../context/context';
 
 
 function Home() {
-  const {animeList, setAnimeList} = useContext(ListContext);
+  const [animeList, setAnimeList] = useState([]);
   const [nextPageUrl, setNextPageUrl] = useState();
   const [fetching, setFetching] = useState(false);
   const [starsFilter, setStarsFilter] = useState(false);
@@ -18,6 +18,7 @@ function Home() {
   const {hearts} = useContext(HeartContext);
 
   useEffect(() => {
+    console.log('initial fetch')
     fetchItems()
   }, [])
 
@@ -40,6 +41,7 @@ function Home() {
 
         if (links.next) {
           setNextPageUrl(links.next);
+          console.log(links.next)
         } else {
           setNextPageUrl(null);
         }
@@ -66,6 +68,7 @@ function Home() {
 
   function list(animeList) {
     let tempList = animeList;
+    console.log('animeList', animeList)
 
     if (textFilter) {
       tempList = tempList.filter((item)=> {

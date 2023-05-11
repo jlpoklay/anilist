@@ -17,10 +17,8 @@ function View(){
 
   useEffect(() => {
     const loader = async () => {
-      const {anime, characters} = await getAnime(id);
+      const {anime, characters = []} = await getAnime(id);
       const episodes = await getEpisodes(id);
-      console.log(characters)
-      console.log(episodes)
       setAnime(anime)
       setCharacters(characters)
       setEpisodes(episodes)
@@ -149,10 +147,10 @@ function View(){
                     <div className='flex flex-row w-max gap-2'>
                       {
                         Object.keys(characters).length > 0 ?
-                        characters.map((character)=>{
+                        characters.map((character, index)=>{
                           return (
                             <>
-                              <div className=' w-36 relative h-56 flex flex-col justify-end'>
+                              <div className=' w-36 relative h-56 flex flex-col justify-end' key={index}>
                                 <img className=' absolute' src={character.attributes?.image?.original}/>
                                 <div className=' bg-slate-500/75 z-10 text-white h-20 p-2'>
                                   {character.attributes?.name}
@@ -177,7 +175,7 @@ function View(){
                       episodes.map(({attributes, id})=>{
                         return (
                           <>
-                            <div>
+                            <div key={id}>
                               {attributes.airdate} Season: {attributes.seasonNumber} Ep: {attributes.number} {attributes.canonicalTitle}
                             </div>
                           </>
