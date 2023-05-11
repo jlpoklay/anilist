@@ -31,7 +31,6 @@ function Card({data: { attributes }, data: { id }}) {
         result.push(id)
       } else {
         result = result.filter((value) => {return id !== value})
-        console.log(result)
       }
       localStorage.setItem("animeStars", JSON.stringify(result))
       return result;
@@ -47,7 +46,6 @@ function Card({data: { attributes }, data: { id }}) {
         result.push(id)
       } else {
         result = result.filter((value) => {return id !== value})
-        console.log(result)
       }
       localStorage.setItem("animeHearts", JSON.stringify(result))
       return result;

@@ -18,7 +18,6 @@ function Home() {
   const {hearts} = useContext(HeartContext);
 
   useEffect(() => {
-    console.log('initial fetch')
     fetchItems()
   }, [])
 
@@ -34,14 +33,12 @@ function Home() {
         const {list, links} = await getAnimeList(nextPageUrl)
 
         setAnimeList((prevState) => {
-          console.log(prevState)
           const result = prevState.concat(list);
           return result
         });
 
         if (links.next) {
           setNextPageUrl(links.next);
-          console.log(links.next)
         } else {
           setNextPageUrl(null);
         }
@@ -68,15 +65,12 @@ function Home() {
 
   function list(animeList) {
     let tempList = animeList;
-    console.log('animeList', animeList)
 
     if (textFilter) {
       tempList = tempList.filter((item)=> {
           const title = getTitle(item.attributes?.titles).toLowerCase()
-          console.log(title, textFilter)
          return title.includes(textFilter)
       })
-      console.log('tempList', tempList)
     }
 
     if (starsFilter) {

@@ -43,7 +43,6 @@ function View(){
         result.push(id)
       } else {
         result = result.filter((value) => {return id !== value})
-        console.log(result)
       }
       localStorage.setItem("animeStars", JSON.stringify(result))
       return result;
@@ -59,7 +58,6 @@ function View(){
         result.push(id)
       } else {
         result = result.filter((value) => {return id !== value})
-        console.log(result)
       }
       localStorage.setItem("animeHearts", JSON.stringify(result))
       return result;
