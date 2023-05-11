@@ -1,0 +1,190 @@
+body, html, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+
+.heart-active {
+  position: relative;
+  width: 100px;
+  height: 90px;
+}
+.heart-active:before,
+.heart-active:after {
+  position: absolute;
+  content: "";
+  left: 10px;
+  top: 0;
+  width: 10px;
+  height: 16px;
+  background: red;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.heart-active:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+
+
+.heart-inactive {
+  position: relative;
+  width: 100px;
+  height: 90px;
+}
+.heart-inactive:before,
+.heart-inactive:after {
+  position: absolute;
+  content: "";
+  left: 10px;
+  top: 0;
+  width: 10px;
+  height: 16px;
+  background: grey;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.heart-inactive:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+
+.star-active {
+  position: relative;
+  
+  display: inline-block;
+  width: 0;
+  height: 0;
+  
+  margin-left: .9em;
+  margin-right: .9em;
+  margin-bottom: 1.2em;
+  
+  border-right:  .3em solid transparent;
+  border-bottom: .7em  solid #FC0;
+  border-left:   .3em solid transparent;
+  left: -21px;
+  top: -7px;
+  /* Controlls the size of the stars. */
+  font-size: 24px;
+  transform: scale(.5);
+}
+.star-active:before {
+  content: '';
+    
+    display: block;
+    width: 0;
+    height: 0;
+    
+    position: absolute;
+    top: .6em;
+    left: -1em;
+  
+    border-right:  1em solid transparent;
+    border-bottom: .7em  solid #FC0;
+    border-left:   1em solid transparent;
+  
+    transform: rotate(-35deg);
+}
+
+.star-active:after {
+  content: '';
+    
+  display: block;
+  width: 0;
+  height: 0;
+  
+  position: absolute;
+  top: .6em;
+  left: -1em;
+
+  border-right:  1em solid transparent;
+  border-bottom: .7em  solid #FC0;
+  border-left:   1em solid transparent;
+
+  transform: rotate(35deg);
+}
+
+
+.star-inactive {
+  position: relative;
+  
+  display: inline-block;
+  width: 0;
+  height: 0;
+  
+  margin-left: .9em;
+  margin-right: .9em;
+  margin-bottom: 1.2em;
+  
+  border-right:  .3em solid transparent;
+  border-bottom: .7em  solid grey;
+  border-left:   .3em solid transparent;
+  left: -21px;
+  top: -7px;
+  /* Controlls the size of the stars. */
+  font-size: 24px;
+  transform: scale(.5);
+}
+.star-inactive:before {
+  content: '';
+    
+    display: block;
+    width: 0;
+    height: 0;
+    
+    position: absolute;
+    top: .6em;
+    left: -1em;
+  
+    border-right:  1em solid transparent;
+    border-bottom: .7em  solid grey;
+    border-left:   1em solid transparent;
+  
+    transform: rotate(-35deg);
+}
+
+.star-inactive:after {
+  content: '';
+    
+  display: block;
+  width: 0;
+  height: 0;
+  
+  position: absolute;
+  top: .6em;
+  left: -1em;
+
+  border-right:  1em solid transparent;
+  border-bottom: .7em  solid grey;
+  border-left:   1em solid transparent;
+
+  transform: rotate(35deg);
+}
+
+.chevron::before {
+	border-style: solid;
+  border-color: black;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	left: 0.15em;
+	position: relative;
+	top: 0.15em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.45em;
+}
+
+.chevron.chevronLeft:before {
+	left: 0.25em;
+	transform: rotate(-135deg);
+}
